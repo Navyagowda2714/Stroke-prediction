@@ -1,85 +1,314 @@
-#  Stroke Prediction with Machine Learning
+<!-- ===================================================== -->
+<!-- Stroke Risk Intelligence — README.md -->
+<!-- Premium • Interactive • Recruiter-Ready -->
+<!-- Brand-consistent banner • Recruiter-first • Creative visuals -->
+<!-- ===================================================== -->
 
-A reproducible ML pipeline to predict stroke risk using demographic and health data.  
-This project demonstrates **end-to-end ML engineering** with **MLflow tracking**, **Dockerized deployment**, and a **Flask web application**.
+<div align="center">
 
----
+<img width="100%" alt="Stroke Risk Intelligence premium header"
+src="https://capsule-render.vercel.app/api?type=waving&color=0:070A12,45:1E3A8A,75:4F46E5,100:06B6D4&height=230&section=header&text=Stroke%20Risk%20Intelligence&fontSize=60&fontColor=FFFFFF&fontAlignY=40&desc=Healthcare%20Analytics%20•%20Predictive%20Modeling%20•%20Clinical%20Risk%20Signals%20•%20ML%20Evaluation&descAlignY=70&descSize=18&animation=fadeIn" />
 
-##  Motivation
-Stroke is one of the leading causes of death and disability worldwide.  
-Early prediction using accessible health indicators can help with preventive measures.  
-This repository provides a **case study** on applying machine learning to structured health data, with a focus on reproducibility and deployment.
+<br/>
 
----
+<img alt="Python" src="https://img.shields.io/badge/Python-ML-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img alt="Scikit-Learn" src="https://img.shields.io/badge/Scikit--Learn-Modeling-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"/>
+<img alt="Pandas" src="https://img.shields.io/badge/Pandas-Data%20Engineering-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
+<img alt="Healthcare" src="https://img.shields.io/badge/Domain-Healthcare%20Analytics-16A34A?style=for-the-badge"/>
+<img alt="Evaluation" src="https://img.shields.io/badge/Focus-Recall%20%26%20Risk%20Sensitivity-DC2626?style=for-the-badge"/>
 
-##  Dataset
-- **Source:** [Kaggle — Stroke Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset)  
-- **Size:** ~5,000 records, 11 features (e.g., age, BMI, hypertension, smoking status).  
-- **Preprocessing:**
-  - Missing value imputation for BMI
-  - One-hot encoding for categorical features
-  - Scaling numerical features
+<br/><br/>
 
----
+<a href="#-end-to-end-modeling-logic"><b>Modeling Logic</b></a> •
+<a href="#-models-benchmarked"><b>Models</b></a> •
+<a href="#-analytical-framework"><b>Framework</b></a> •
+<a href="#-core-analytical-themes"><b>Themes</b></a> •
+<a href="#-recruiter-snapshot"><b>Recruiter Snapshot</b></a> •
+<a href="#-contact"><b>Contact</b></a>
 
-## ⚙️ Methods
-We trained and compared several models:
-- Logistic Regression
-- Random Forest
-- XGBoost
-
-### Evaluation metrics:
-- Accuracy
-- Precision, Recall, F1-score
-- ROC-AUC
+</div>
 
 ---
 
-##  Results
+# 🧬 End-to-End Modeling Logic
 
-| Model              | Accuracy | F1-score | ROC-AUC |
-|--------------------|----------|----------|---------|
-| Logistic Regression| 0.82     | 0.71     | 0.85    |
-| Random Forest      | 0.86     | 0.75     | 0.90    |
-| XGBoost            | 0.88     | 0.78     | 0.92    |
+<details open>
+<summary><b>🧠 Clinical Signal Orchestration (click to collapse)</b></summary>
 
- **XGBoost achieved the best balance between recall and ROC-AUC**
+<br/>
+
+<div align="center">
+
+### ⚙️ The Stroke Risk “Signal Factory”
+A view of how raw health data becomes a risk decision.
+
+</div>
+
+```mermaid
+flowchart LR
+  A["🧾 Patient Signals<br/>Age • BMI • Glucose • HTN • Heart Disease • Smoking"] --> 
+  B["🧹 Integrity Gate<br/>Missing values • type fixes • sanity checks"] -->
+  C["🧬 Meaning Encoder<br/>Categoricals → one-hot<br/>clinical meaning preserved"] -->
+  D["📏 Calibration<br/>scaling • normalization<br/>fair feature influence"] -->
+  E["🧪 Evidence Split<br/>train/test boundary"] -->
+  F["🏟️ Model Arena<br/>LR • DT • RF • KNN • GB"] -->
+  G["⚖️ Risk Court<br/>recall-first selection<br/>error-map review"] -->
+  H["🎯 Output<br/>stroke probability"]
+```
+
+<div align="center">
+
+#### 🧠 What makes this *not* a generic pipeline
+Instead of optimizing for “best accuracy”, this flow is built to reduce **false negatives** — because missing a high-risk patient is the most expensive mistake.
+
+</div>
+
+</details>
 
 ---
 
-##  Deployment
+# ⚔️ Models Benchmarked
 
-- **MLflow Tracking:** All experiments logged with parameters, metrics, and artifacts.  
-- **Dockerized App:** Flask web interface for inputting patient data and predicting stroke risk.  
-- **Demo Screenshot:**  
-  ![App Demo](docs/demo.png)
+<details open>
+<summary><b>🏁 “Model League Cards” — not a table (click to collapse)</b></summary>
+
+<br/>
+
+<div align="center">
+
+<table>
+<tr>
+<td width="20%" valign="top">
+
+### 🩺 Logistic Regression  
+**Role:** Baseline clinician  
+**Strength:** Probability clarity  
+**Wins when:** interpretability + stability matter
+
+</td>
+<td width="20%" valign="top">
+
+### 🌳 Decision Tree  
+**Role:** Rule explainer  
+**Strength:** Human readable paths  
+**Wins when:** justification is critical
+
+</td>
+<td width="20%" valign="top">
+
+### 🌲 Random Forest  
+**Role:** Stability engine  
+**Strength:** Robust ensembles  
+**Wins when:** noise/variance exists
+
+</td>
+<td width="20%" valign="top">
+
+### 🧭 KNN  
+**Role:** Similar-patient matcher  
+**Strength:** Local pattern discovery  
+**Wins when:** clusters are meaningful
+
+</td>
+<td width="20%" valign="top">
+
+### ⚡ Gradient Boosting  
+**Role:** Precision finisher  
+**Strength:** Strong signal learning  
+**Wins when:** performance needs refinement
+
+</td>
+</tr>
+</table>
+
+</div>
+
+<div align="center">
+<sub>All models are evaluated under the same boundaries so improvements are real — not accidental.</sub>
+</div>
+
+</details>
 
 ---
 
-## Project Structure
-Stroke-prediction/
-├── src/
-│ ├── data_preprocessing.py
-│ ├── stroke_prediction.py # main training & evaluation
-│ └── utils.py
-├── app/
-│ ├── app.py # Flask web server
-│ └── templates/
-│ └── index.html
-├── notebooks/ # EDA & model experiments
-├── requirements.txt
-├── Dockerfile
-├── mlruns/ # MLflow artifacts
-└── README.md
+# ⚖️ Analytical Framework
 
+<details open>
+<summary><b>🏥 Risk Review Board — evaluation that sounds like healthcare (click to collapse)</b></summary>
 
-##  Conclusion
+<br/>
 
-This project developed and benchmarked multiple machine learning models for **stroke prediction** using structured health data.  
-Through systematic preprocessing, model comparison, and robustness testing, we demonstrated that ensemble-based methods such as **Random Forest** and **XGBoost** achieved the best balance between accuracy and stability.  
+<div align="center">
 
-The results highlight the importance of proper handling of class imbalance, feature scaling, and rigorous evaluation using F1(+), ROC-AUC, and PR-AUC metrics.  
-Robustness analysis under small input perturbations confirmed that the best models maintained high performance even with noisy data, emphasizing their reliability for clinical risk estimation tasks.  
+### 🧾 “Clinical Evaluation Brief”
+A compact decision memo style, not a metric list.
 
-While no explainability (XAI) module was used in this phase, the pipeline is designed to be fully extendable for future integration with explainable or trustworthy AI components.  
-This concludes the **Stroke Prediction** study and provides a solid methodological foundation for subsequent projects focusing on **RAG + Guardrail + XAI** architectures.
+</div>
+
+> **1) Safety First — Recall**  
+> If the model misses stroke-positive cases, it fails the healthcare requirement.
+
+> **2) Alarm Discipline — Precision**  
+> Too many false alarms creates unnecessary escalation and reduces trust.
+
+> **3) Balanced Judgment — F1**  
+> Ensures the model isn’t good at only one thing.
+
+> **4) Error Autopsy — Confusion Matrix**  
+> Shows *how* the model fails, not just *how much* it fails.
+
+> **5) Separation Strength — ROC-AUC**  
+> Tests whether the model genuinely distinguishes low vs high risk.
+
+<div align="center">
+<b>Selection Rule:</b> accuracy never overrides clinical cost.
+</div>
+
+</details>
+
+---
+
+# 🧠 Core Analytical Themes
+
+<details open>
+<summary><b>🧩 “Theme Board” — styled like a brand panel (click to collapse)</b></summary>
+
+<br/>
+
+<div align="center">
+
+<!-- classy "panels" without mermaid -->
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 🩺 Risk Sensitivity
+- Recall-first mindset  
+- False-negative control  
+- Minority class awareness  
+- Threshold thinking  
+
+</td>
+<td width="33%" valign="top">
+
+### 🧱 Engineering Discipline
+- Clean preprocessing chain  
+- Comparable benchmarks  
+- Stable feature handling  
+- Reproducible evaluation  
+
+</td>
+<td width="33%" valign="top">
+
+### 🧠 Clinical Reasoning
+- Metrics mapped to impact  
+- Decision framing  
+- Error interpretation  
+- Responsible ML lens  
+
+</td>
+</tr>
+</table>
+
+</div>
+
+<div align="center">
+<sub>This project demonstrates applied ML behavior — not “train model, print accuracy”.</sub>
+</div>
+
+</details>
+
+---
+
+# 🌟 Why This Project Matters
+
+<details open>
+<summary><b>✨ Recruiter Story Mode — “Decision System, not a notebook” (click to collapse)</b></summary>
+
+<br/>
+
+<div align="center">
+
+### 🧠 The difference
+
+</div>
+
+```text
+Most projects:   "I trained a classifier."
+This project:    "I designed a risk-sensitive decision architecture."
+```
+
+<div align="center">
+
+### 🎯 What’s special here
+
+</div>
+
+- **Healthcare cost-aware evaluation** (recall prioritized for safety)  
+- **Benchmarking discipline** (models compared fairly, same boundaries)  
+- **Interpretation mindset** (error behavior analyzed, not hidden)  
+- **Recruiter clarity** (communicates impact + engineering maturity)
+
+</details>
+
+---
+
+# 🎯 Recruiter Snapshot
+
+<details open>
+<summary><b>📌 What a recruiter should remember in 15 seconds (click to collapse)</b></summary>
+
+<br/>
+
+<div align="center">
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### ✅ What I demonstrated
+- End-to-end ML system thinking  
+- Class-imbalance awareness  
+- Model benchmarking discipline  
+- Healthcare-first evaluation logic  
+- Clear analytical communication  
+
+</td>
+<td width="50%" valign="top">
+
+### 🧠 Why it’s valuable
+- Medical ML demands safety metrics  
+- False negatives are costlier than false positives  
+- Evaluation isn’t reporting — it’s design  
+- This reflects applied ML maturity  
+
+</td>
+</tr>
+</table>
+
+</div>
+
+</details>
+
+---
+
+# 📬 Contact
+
+<div align="center">
+
+<a href="https://www.linkedin.com/in/navyashree-byregowda-472821196/">
+<img src="https://img.shields.io/badge/LinkedIn-Connect-1E40AF?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="https://github.com/Navyagowda2714">
+<img src="https://img.shields.io/badge/GitHub-Portfolio-111827?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+<a href="mailto:navyashreebyregowda@gmail.com">
+<img src="https://img.shields.io/badge/Email-Let's%20Talk-DC2626?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+<br/><br/>
+<sub>Stroke Risk Intelligence — responsible healthcare prediction through risk-aware machine learning.</sub>
+
+</div>
