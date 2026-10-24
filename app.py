@@ -43,7 +43,7 @@ if not GEMINI_API_KEY:
 else:
     try:
         genai.configure(api_key=GEMINI_API_KEY)
-        llm_model = genai.GenerativeModel('gemini-pro')
+        llm_model = genai.GenerativeModel(os.getenv("GEMINI_MODEL", "gemini-2.5-flash"))
         app.logger.info("Google Gemini API configured successfully.")
     except Exception as e:
         app.logger.error(f"Error configuring Gemini API: {e}", exc_info=True)

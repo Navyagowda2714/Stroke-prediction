@@ -1,17 +1,16 @@
-# 1. Use an official lightweight Python image
-FROM python:3.10-slim
+# Lightweight Python image
+FROM python:3.11-slim
 
-# 2. Set working directory
 WORKDIR /app
 
-# 3. Copy project files
-COPY . /app
-
-# 4. Install dependencies
+# Install dependencies first so Docker can cache this layer
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 5. Set environment variables (optional)
-ENV MLFLOW_TRACKING_URI=http://localhost:5000
+# Copy the app, trained model and scaler
+COPY . .
 
-# 6. Run MLflow model serving
-CMD ["mlflow", "models", "serve", "-m", "runs:/<RUN_ID>/model", "-h", "0.0.0.0", "-p", "5000", "--no-conda"]
+# Optional: set GOOGLE_API_KEY at runtime to enable the Gemini explanation
+# docker run -e GOOGLE_API_KEY=... -p 5000:5000 stroke-prediction
+EXPOSE 5000
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "app:app"]

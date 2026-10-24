@@ -1,0 +1,8 @@
+.git
+.github
+tests
+__pycache__
+*.ipynb
+.venv
+venv
+.env

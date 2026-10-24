@@ -19,6 +19,7 @@ src="https://capsule-render.vercel.app/api?type=waving&color=0:070A12,45:1E3A8A,
 
 <br/><br/>
 
+<a href="#-quickstart"><b>Quickstart</b></a> •
 <a href="#-end-to-end-modeling-logic"><b>Modeling Logic</b></a> •
 <a href="#-models-benchmarked"><b>Models</b></a> •
 <a href="#-analytical-framework"><b>Framework</b></a> •
@@ -27,6 +28,59 @@ src="https://capsule-render.vercel.app/api?type=waving&color=0:070A12,45:1E3A8A,
 <a href="#-contact"><b>Contact</b></a>
 
 </div>
+
+---
+
+
+<!-- quickstart:start -->
+# 🚀 Quickstart
+
+[![tests](https://github.com/Navyagowda2714/Stroke-prediction/actions/workflows/tests.yml/badge.svg)](https://github.com/Navyagowda2714/Stroke-prediction/actions/workflows/tests.yml)
+
+**Requirements:** Python 3.10+ (or Docker). The trained model (`model_pickle.pkl`) and scaler (`scaler.pkl`) are included, so no training is needed to run the app.
+
+```bash
+git clone https://github.com/Navyagowda2714/Stroke-prediction.git
+cd Stroke-prediction
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+# optional: enables the Gemini explanation of each prediction
+export GOOGLE_API_KEY=your-key
+
+python app.py            # → http://127.0.0.1:5000
+```
+
+**Run with Docker**
+
+```bash
+docker build -t stroke-prediction .
+docker run -p 5000:5000 -e GOOGLE_API_KEY=your-key stroke-prediction
+```
+
+**Call the API directly**
+
+```bash
+curl -X POST http://127.0.0.1:5000/predict -H "Content-Type: application/json" \
+  -d '{"gender":"Male","age":"67","hypertension":"0","disease":"1","married":"Yes",
+       "work":"Private","residence":"Urban","glucose":"228.7","bmi":"36.6","smoking":"formerly smoked"}'
+```
+
+**Run the tests**
+
+```bash
+pip install -r requirements-dev.txt
+pytest -v
+```
+
+| Path | What it is |
+|---|---|
+| `Stroke_Prediction.ipynb` / `stroke_prediction.py` | EDA, preprocessing, model benchmarking and training |
+| `app.py` | Flask app: `/` web form, `/predict` JSON API, optional Gemini explanation |
+| `model_pickle.pkl`, `scaler.pkl` | Trained classifier and fitted `StandardScaler` (scikit-learn 1.6.1) |
+| `templates/` | Front-end HTML/CSS |
+| `tests/` | pytest suite for the API and helper logic (runs in CI on every push) |
+<!-- quickstart:end -->
 
 ---
 
